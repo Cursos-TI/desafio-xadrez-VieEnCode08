@@ -1,32 +1,71 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+    int main () {
+        
+        // Declarando as variaveis das Peças
+        int torre = 1, bispo = 1, rainha = 1;
 
-int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
+        // Variaveis dos switch
+        int jogador, pecas;
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+            // Menu Inicial
+            printf ("=====Bem-Vindo ao Jogo de Xadrez=====\n\n");
+            printf ("1- Começar Jogo\n");
+            printf ("2- Regras\n");
+            printf ("3- Sair do Jogo\n");
+            printf ("Escolha uma das Opção: ");
+            scanf ("%d", &jogador);
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+            // Lógica do Menu
+            switch (jogador) {
+            case 1:
+                printf ("\nComeçando o Jogo...\n");
+                break;
+            case 2:
+                printf ("\nRegras:\n");
+                printf ("Torre: Anda 5 casas, horizontalmente ou verticalmente.\n");
+                printf ("Bispo: Anda 5 casas na diagonal.\n");
+                printf ("Rainha: Anda 8 casas nas diagonais, horizontalmente ou verticalmente.\n");
+                break;
+            case 3:
+                printf ("Saindo do Jogo...\n");
+                break;
+            default:
+                printf ("Opção Inválida\n");
+                break;
+            }
+            
+            // Escolha das Peças
+            printf ("\n=====Peças=====\n\n");
+            printf ("1- Torre\n");
+            printf ("2- Bispo\n");
+            printf ("3- Rainha\n");
+            printf ("Escolha uma peça pra começar: ");
+            scanf ("%d", &pecas);
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
-
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
-
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
-
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
-
-    return 0;
-}
+            // Lógica do Jogo
+            switch (pecas) {
+            case 1:
+                while (torre <= 5) {
+                    printf ("Direita\n");
+                    torre++;
+                }
+                break;
+            case 2:
+                do {
+                    printf ("Cima, Direita\n");
+                    bispo++;
+                } while (bispo <= 5);
+                break;
+            case 3:
+                for (int rainha = 1; rainha <= 8; rainha++)
+                {
+                    printf ("Esquerda\n");
+                }
+                
+            default:
+                printf ("Opção Inválida\n");
+                break;
+            }
+        return 0;
+    }
